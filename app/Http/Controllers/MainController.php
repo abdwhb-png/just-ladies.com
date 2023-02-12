@@ -100,7 +100,7 @@ class MainController extends Controller
                         })
                         ->get();
 
-        return view('admin.dashboard', compact('chatters'));
+        return view('Admin.dashboard', compact('chatters'));
     }
 
     public function tarifs()
