@@ -1,0 +1,112 @@
+{
+  "resources/fonts/bmg-icons/bmg.eot": {
+    "file": "assets/bmg.733bc990.eot",
+    "src": "resources/fonts/bmg-icons/bmg.eot"
+  },
+  "resources/fonts/bmg-icons/bmg.woff": {
+    "file": "assets/bmg.cb67f845.woff",
+    "src": "resources/fonts/bmg-icons/bmg.woff"
+  },
+  "resources/fonts/leckerlione/leckerlione-regular-webfont.woff2": {
+    "file": "assets/leckerlione-regular-webfont.685f9b65.woff2",
+    "src": "resources/fonts/leckerlione/leckerlione-regular-webfont.woff2"
+  },
+  "resources/fonts/bmg-icons/bmg.ttf": {
+    "file": "assets/bmg.faff2243.ttf",
+    "src": "resources/fonts/bmg-icons/bmg.ttf"
+  },
+  "resources/fonts/opensans/opensans-bold-webfont.woff": {
+    "file": "assets/opensans-bold-webfont.8435bc4d.woff",
+    "src": "resources/fonts/opensans/opensans-bold-webfont.woff"
+  },
+  "resources/fonts/leckerlione/leckerlione-regular-webfont.woff": {
+    "file": "assets/leckerlione-regular-webfont.ed2bcb80.woff",
+    "src": "resources/fonts/leckerlione/leckerlione-regular-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-bold-webfont.woff2": {
+    "file": "assets/opensans-bold-webfont.dd9b2e03.woff2",
+    "src": "resources/fonts/opensans/opensans-bold-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-bolditalic-webfont.woff": {
+    "file": "assets/opensans-bolditalic-webfont.376d352f.woff",
+    "src": "resources/fonts/opensans/opensans-bolditalic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-bolditalic-webfont.woff2": {
+    "file": "assets/opensans-bolditalic-webfont.846e593c.woff2",
+    "src": "resources/fonts/opensans/opensans-bolditalic-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff": {
+    "file": "assets/opensans-extrabolditalic-webfont.cda35006.woff",
+    "src": "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff2": {
+    "file": "assets/opensans-extrabolditalic-webfont.91cca87c.woff2",
+    "src": "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-extrabold-webfont.woff": {
+    "file": "assets/opensans-extrabold-webfont.f85e3530.woff",
+    "src": "resources/fonts/opensans/opensans-extrabold-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-extrabold-webfont.woff2": {
+    "file": "assets/opensans-extrabold-webfont.5d214537.woff2",
+    "src": "resources/fonts/opensans/opensans-extrabold-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-italic-webfont.woff": {
+    "file": "assets/opensans-italic-webfont.cbd17a5d.woff",
+    "src": "resources/fonts/opensans/opensans-italic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-light-webfont.woff2": {
+    "file": "assets/opensans-light-webfont.447455b9.woff2",
+    "src": "resources/fonts/opensans/opensans-light-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-lightitalic-webfont.woff": {
+    "file": "assets/opensans-lightitalic-webfont.8385fa68.woff",
+    "src": "resources/fonts/opensans/opensans-lightitalic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-italic-webfont.woff2": {
+    "file": "assets/opensans-italic-webfont.78124636.woff2",
+    "src": "resources/fonts/opensans/opensans-italic-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-lightitalic-webfont.woff2": {
+    "file": "assets/opensans-lightitalic-webfont.08c3d716.woff2",
+    "src": "resources/fonts/opensans/opensans-lightitalic-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-light-webfont.woff": {
+    "file": "assets/opensans-light-webfont.4563a37b.woff",
+    "src": "resources/fonts/opensans/opensans-light-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-semibold-webfont.woff": {
+    "file": "assets/opensans-semibold-webfont.7377a79b.woff",
+    "src": "resources/fonts/opensans/opensans-semibold-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-regular-webfont.woff": {
+    "file": "assets/opensans-regular-webfont.363122ed.woff",
+    "src": "resources/fonts/opensans/opensans-regular-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-regular-webfont.woff2": {
+    "file": "assets/opensans-regular-webfont.4cb93e79.woff2",
+    "src": "resources/fonts/opensans/opensans-regular-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-semibolditalic-webfont.woff": {
+    "file": "assets/opensans-semibolditalic-webfont.c7675b4d.woff",
+    "src": "resources/fonts/opensans/opensans-semibolditalic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-semibold-webfont.woff2": {
+    "file": "assets/opensans-semibold-webfont.06d46c85.woff2",
+    "src": "resources/fonts/opensans/opensans-semibold-webfont.woff2"
+  },
+  "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2": {
+    "file": "assets/opensans-semibolditalic-webfont.302f388f.woff2",
+    "src": "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app.f3530df2.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app.c88242eb.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
