@@ -39,13 +39,13 @@
     "file": "assets/opensans-extrabold-webfont.f85e3530.woff",
     "src": "resources/fonts/opensans/opensans-extrabold-webfont.woff"
   },
-  "resources/fonts/opensans/opensans-extrabold-webfont.woff2": {
-    "file": "assets/opensans-extrabold-webfont.5d214537.woff2",
-    "src": "resources/fonts/opensans/opensans-extrabold-webfont.woff2"
-  },
   "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff": {
     "file": "assets/opensans-extrabolditalic-webfont.cda35006.woff",
     "src": "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff"
+  },
+  "resources/fonts/opensans/opensans-extrabold-webfont.woff2": {
+    "file": "assets/opensans-extrabold-webfont.5d214537.woff2",
+    "src": "resources/fonts/opensans/opensans-extrabold-webfont.woff2"
   },
   "resources/fonts/opensans/opensans-extrabolditalic-webfont.woff2": {
     "file": "assets/opensans-extrabolditalic-webfont.91cca87c.woff2",
@@ -83,30 +83,48 @@
     "file": "assets/opensans-regular-webfont.4cb93e79.woff2",
     "src": "resources/fonts/opensans/opensans-regular-webfont.woff2"
   },
+  "resources/fonts/opensans/opensans-semibold-webfont.woff2": {
+    "file": "assets/opensans-semibold-webfont.06d46c85.woff2",
+    "src": "resources/fonts/opensans/opensans-semibold-webfont.woff2"
+  },
   "resources/fonts/opensans/opensans-semibold-webfont.woff": {
     "file": "assets/opensans-semibold-webfont.7377a79b.woff",
     "src": "resources/fonts/opensans/opensans-semibold-webfont.woff"
   },
-  "resources/fonts/opensans/opensans-semibold-webfont.woff2": {
-    "file": "assets/opensans-semibold-webfont.06d46c85.woff2",
-    "src": "resources/fonts/opensans/opensans-semibold-webfont.woff2"
+  "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2": {
+    "file": "assets/opensans-semibolditalic-webfont.302f388f.woff2",
+    "src": "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2"
   },
   "resources/fonts/opensans/opensans-semibolditalic-webfont.woff": {
     "file": "assets/opensans-semibolditalic-webfont.c7675b4d.woff",
     "src": "resources/fonts/opensans/opensans-semibolditalic-webfont.woff"
   },
-  "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2": {
-    "file": "assets/opensans-semibolditalic-webfont.302f388f.woff2",
-    "src": "resources/fonts/opensans/opensans-semibolditalic-webfont.woff2"
+  "resources/webfonts/fa-solid-900.woff": {
+    "file": "assets/fa-solid-900.3e7eb8c8.woff",
+    "src": "resources/webfonts/fa-solid-900.woff"
+  },
+  "resources/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900.79fc8a96.ttf",
+    "src": "resources/webfonts/fa-solid-900.ttf"
   },
   "resources/js/app.js": {
     "file": "assets/app.f3530df2.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
+  "resources/css/admin.css": {
+    "file": "assets/admin.0fa6b8e8.css",
+    "src": "resources/css/admin.css",
+    "isEntry": true
+  },
   "resources/sass/app.scss": {
     "file": "assets/app.c88242eb.css",
     "src": "resources/sass/app.scss",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.9c0bab14.css",
+    "src": "resources/css/app.css",
     "isEntry": true
   }
 }
