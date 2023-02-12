@@ -98,7 +98,7 @@ class UsersController extends Controller
 
         // dd($response);
 
-        return view('admin.conversations', compact('contacts', 'target_id', 'response', 'chatter_id', 'chatter_name'));
+        return view('Admin.conversations', compact('contacts', 'target_id', 'response', 'chatter_id', 'chatter_name'));
     }
 
     private function fetch($target_id, $chatter_id)
@@ -243,7 +243,7 @@ class UsersController extends Controller
     {
         $roles = Role::where('name', 'admin')->OrWhere('name', 'author')->get();
 
-        return view("admin.users.create", compact("roles"));
+        return view("Admin.Users.create", compact("roles"));
 
     }
 
@@ -301,7 +301,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        return view('Admin.Users.Edit', compact('user'));
     }
     public function resetPassword(Request $request, $user_id){
         Validator::make($request->all(), [
