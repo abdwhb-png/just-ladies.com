@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\ChFavorite as Favorite;
 
 class EscortsController extends Controller
 {
@@ -251,6 +252,15 @@ class EscortsController extends Controller
         return [$email, $services, $fr, $en, $es, $de, $fr_maitrise, $en_maitrise, $es_maitrise, $de_maitrise, $tarif30M, $tarif1H, $tarif1N, $tarif1W, $eyes, $hair, $pubic_hair, $mobility, $breasts, $origin, $height, $weight, $age]; 
     }
 
+    protected function makeInFavorite($abonne_id, $escort_id)
+    {
+            // Star
+            $star = new Favorite();
+            $star->user_id = $abonne_id;
+            $star->favorite_id = $escort_id;
+            $star->save();
+            return $star ? true : false;
+    }
     protected function generateFollowers($id, $nbr){
         $member_role = Role::where('name', 'member')->first();
         $followers = User::where('role_id', $member_role->id)
@@ -258,10 +268,11 @@ class EscortsController extends Controller
                         ->limit($nbr)
                         ->get();
         foreach($followers as $follower){
-            Abonne::create([
+            $abonne = Abonne::create([
                 'abonne_id' => $follower->id,
                 'user_id' => $id
             ]);
+            $this->makeInFavorite($follower->id, $id);
         }
     }
 

@@ -53,7 +53,7 @@
             Ooooops!!! <br> {{ girls_names.length }} escortes disponibles pour génération automatique. <br> Il faut générer manuellement!
           </div>
           <div class="row mb-3">
-              <label for="nbr" class="col-md-4 col-form-label text-md-end">Nombres d'escortes à générer</label>
+              <label for="nbr" class="col-md-4 col-form-label text-md-end">Nombres d'escortes à générer (min=1, max=20)</label>
               <div class="col-md-6">
                   <div class="input-group">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
@@ -62,7 +62,7 @@
               </div>
           </div>
           <div class="row mb-3">
-              <label for="abonnes" class="col-md-4 col-form-label text-md-end">Nombres d'abonnés par escorte</label>
+              <label for="abonnes" class="col-md-4 col-form-label text-md-end">Nombres d'abonnés par escorte (min=30, max=200)</label>
               <div class="col-md-6">
                   <div class="input-group">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
@@ -145,7 +145,7 @@
             </div>
             <div id="step2">
                 <div class="row mb-3">
-                  <label for="abonnes_indiv" class="col-md-4 col-form-label text-md-end">Nombres d'abonnés pour {{name.Name}}</label>
+                  <label for="abonnes_indiv" class="col-md-4 col-form-label text-md-end">Nombres d'abonnés pour {{name.Name}} (min=30, max=200)</label>
                   <div class="col-md-6">
                       <div class="input-group">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
@@ -246,6 +246,8 @@ export default {
             this.generate_girls = false;
           else
             this.generate_girls = true;
+
+            console.log(response);
         })
         .catch((error) => console.log(error));
     },

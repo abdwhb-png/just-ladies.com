@@ -60,6 +60,7 @@ class MainController extends Controller
             $girls = DB::table('users')
                     ->join('escorts', 'users.id', '=', 'escorts.user_id')
                     ->Where('users.role_id', $escort_role->id)
+                    ->inRandomOrder()
                     ->OrderBy('users.created_at', 'desc')
                     ->get();
         }
