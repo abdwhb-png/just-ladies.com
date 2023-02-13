@@ -21,7 +21,6 @@
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/06e28f27a4.js" crossorigin="anonymous"></script>
-    <script src="https://www.bemygirl.ch/lib/jquery/jquery.min.js" type="text/javascript"></script>
     @vite(['resources/sass/app.scss', 'resources/css/admin.css', 'resources/js/app.js'])
 </head>
 <body class="container-fluid">

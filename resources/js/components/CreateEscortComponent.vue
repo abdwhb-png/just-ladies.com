@@ -293,6 +293,8 @@ export default {
   },
 
   created: function () {
+    this.girls = [];
+    this.girls_names = [];
   },
 };
 </script>

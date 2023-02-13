@@ -18,7 +18,7 @@
                 </div>
                 <div class="w-full md:w-1/3">
                     <ul class="flex justify-between items-center md:justify-end md:space-x-8">
-                        <li class="md:hidden text-lg "><a href="#"><i aria-hidden="true"
+                        <li class="md:hidden text-lg "><a href="{{ route('/') }}"><i aria-hidden="true"
                                     class="fak fa-c-search"></i></a></li>
                         <li class="text-lg  active "><a href="{{ route('chat') }}" class="cursor-pointer">
                                 <div class="relative"><i aria-hidden="true" class="fak fa-c-chat"></i>
