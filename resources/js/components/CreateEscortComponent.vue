@@ -42,7 +42,7 @@
     <div v-if="choice == 'auto' && !form.successful" class="card-body">
       <h4 class="text-center">
         <small class="text-muted">Génération Automatique</small>
-         <button class="btn btn-outline-secondary btn-sm ml-2" type="button" @click="girls_names=[]">
+         <button class="btn btn-outline-secondary btn-sm ml-2" type="button" @click="girls_names=[];girls=[]">
             <i class="bi bi-arrow-clockwise"></i>
         </button>
       </h4>

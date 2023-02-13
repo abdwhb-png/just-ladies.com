@@ -1,15 +1,15 @@
 @extends('layouts.guest')
 
-@section('title', 'Confidentialité')
+@section('title', 'Conditions Générales')
 @section('content')
 <div id="article-wrapper" class="md:container lg:mx-auto mb-20 mt-24 lg:mt-8 lg:mt-0 flex flex-col lg:flex-row">
     <article class="w-full">
-        <div class="mb-10 hidden lg:block"><a href="https://www.JustLadies.ch/fr" class="bg-tertiary rounded-lg px-4 h-10 leading-10 inline-block cursor-pointer">Retour</a></div>
+        <div class="mb-10 hidden lg:block"><a href="{{ url()->previous() }}" class="bg-tertiary rounded-lg px-4 h-10 leading-10 inline-block cursor-pointer">Retour</a></div>
         <h1 class="strong text-4xl mb-6 px-4 lg:p-0">Conditions générales</h1>
         <div class="mt-8 lg:mt-20 text-base px-4 lg:p-0">
             <p>IMPORTANT – VEUILLEZ LIRE ATTENTIVEMENT LE PRÉSENT DOCUMENT AVANT TOUTE CRÉATION D’UN COMPTE ET UTILISATION DES SERVICES DU SITE INTERNET ET EN CONSERVER UNE COPIE.<br>&nbsp;</p>
             <h3><strong>Préambule</strong></h3>
-            <p><br>JustLadies fournit des services de partage de contenus entre Modèles et Utilisateurs par le biais de son site internet disponible à l’adresse suivante https://JustLadies.ch<br><br>Les Utilisateurs peuvent ainsi consulter les Contenus publiés
+            <p><br>JustLadies fournit des services de partage de contenus entre Modèles et Utilisateurs par le biais de son site internet disponible à l’adresse suivante https://just-ladies.com<br><br>Les Utilisateurs peuvent ainsi consulter les Contenus publiés
                 par les Modèles, tandis que les Modèles peuvent publier ces Contenus via leur Compte, de manière publique ou restreinte et dans le cadre de l’utilisation des Services.<br><br>L’Utilisateur comprend et accepte notamment que JustLadies n’a
                 pas de contrôle sur la fréquence d’activité, ou le type de contenu proposé par les Modèles, qui exercent leur activité de façon indépendante.<br>&nbsp;</p>
             <h3><strong>1. Champ d'application</strong></h3>
