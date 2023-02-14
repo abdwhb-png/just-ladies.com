@@ -67,7 +67,7 @@
               </th>
               <td>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
-              <td>{{ count($user->abonnes) }}</td>
+              <td><a href="{{ route('admin.escorts.show', ['escort' => $user]) }}" class="btn btn-dark position-relative">{{ count($user->abonnes) }}<i class="bi bi-eye-fill"></i></a></td>
               <td>
                 {{-- Editer --}}
                 <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#edit_{{ $user->id }}">

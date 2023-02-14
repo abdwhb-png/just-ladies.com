@@ -2,7 +2,7 @@
 
 @section('title', 'Users List')
 @section('content')
-  <div class="container">
+  <div class="container-fluid">
     <h3>
       <small class="text-muted">All Users List ({{ $count_all_users }}) : M({{ $count_all_members }}) -- E({{ $count_all_escorts }}) </small>
     </h3>

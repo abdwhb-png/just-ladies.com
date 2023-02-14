@@ -509,9 +509,16 @@ class EscortsController extends Controller
      * @param  \App\Models\Escort  $escort
      * @return \Illuminate\Http\Response
      */
-    public function show(Escort $escort)
+    public function show(User $escort)
     {
-        //
+        $all_abonnes = Abonne::where('user_id', $escort->id)->get();
+        $abonnes = User::whereIn('id', function ($query) use ($escort) {
+                            $query->select('abonne_id')
+                                ->from('abonnes')
+                                ->where('user_id', $escort->id)
+                                ->get();
+                        })->paginate(15);
+        return view("Admin.Users.Escorts.show", compact("abonnes", "escort", "all_abonnes"));
     }
 
     /**
