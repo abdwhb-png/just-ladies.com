@@ -17,8 +17,8 @@
                     sizes="100vw"></figure>
             <p><br>L'équipe de JustLadies se fera un plaisir de répondre à l'ensemble de vos messages.&nbsp;<br><br>Nos
                 bureaux sont situés au coeur de la ville de Genève et de Zürich.&nbsp;<br>Nos photographes se déplacent
-                également jusqu'à Lausanne, Bâle ou Lucerne.</p>
-            <h1 class="" style="width: 100%;">info@justladies.com</h1>
+                également partout en Suisse ou en France.</p>
+            <h1 class="" style="width: 100%;">info@just-ladies.com</h1>
             <p>&nbsp;</p>
         </div>
     </article>

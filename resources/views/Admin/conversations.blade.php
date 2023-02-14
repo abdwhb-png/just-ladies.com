@@ -139,11 +139,11 @@
                                                     {!! ($message['message'] == null && $message['attachment'] != null && @$message['attachment'][2] != 'file') ? $message['attachment'][1] : nl2br($message['message']) !!}
                                                 </span> <span class="absolute bottom-0 right-0 mx-1"><i class="fal fa-{{ $message['seen'] > 0 ? 'check-double' : 'check' }} fa-xs"></i></span>
                                             </p>
-                                            <form class="relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" data-id="{{ $message['id'] }}" action="{{ route('admin.conversations.deleteMessage', ['msg_id' => $message['id'], 'chatter_id' => $chatter_id]) }}" method="POST">
+                                            {{-- <form class="relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" data-id="{{ $message['id'] }}" action="{{ route('admin.conversations.deleteMessage', ['msg_id' => $message['id'], 'chatter_id' => $chatter_id]) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"><i class="fas fa-trash"></i></button>
-                                            </form>
+                                            </form> --}}
                                             
                                         </div>
                                     </div>

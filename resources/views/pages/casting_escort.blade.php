@@ -13,8 +13,8 @@
 
 					<div class="mt-8 lg:mt-20 text-base px-4 lg:p-0">
 						<h3><strong>Devenez escort indépendante sur JustLadies™ en 3 étapes!</strong></h3>
-						<p><br>1. Envoyez 5 selfies au&nbsp;<strong> </strong><a
-								href="https://wa.me/41799606969"><strong>+41 79 960 69 69</strong></a><br><br>2. Prenez
+						<p><br>1. Envoyez 5 selfies à&nbsp;<strong> </strong><a
+								href="https://wa.me/41799606969"><strong>info@just-ladies.com</strong></a><br><br>2. Prenez
 							rendez-vous pour le shooting photo.<br><br>3. Publiez votre profil.<br><br><i>Option: Gagnez
 								encore plus d'argent en vendant du contenu payant depuis votre compte.</i></p>
 						<figure class="image image_resized" style="width:100%;"><img
@@ -29,7 +29,7 @@
 						<p><br><strong>Avez-vous des appartements à louer?</strong><br>Nous ne louons pas d'appartements
 							pour les escorts mais n'hésitez pas à nous contacter pour obtenir une liste d'appartements
 							et de lieux de travail.</p>
-						<p><br><strong>Combien puis-je gagner?</strong><br>Le revenu mensuel des escorts sur BemyGirl
+						<p><br><strong>Combien puis-je gagner?</strong><br>Le revenu mensuel des escorts sur JustLadies
 							dépend de nombreux critères mais il peut atteindre plus de 50'000 CHF.</p>
 					</div>
 				</article>

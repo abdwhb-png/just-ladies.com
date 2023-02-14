@@ -14,8 +14,8 @@
                     href="#">Zurich</a> depuis 2012.</p>
             <p>&nbsp;</p>
             <h3><strong>Demande d'inscription (Casting)</strong></h3>
-            <p><br>Envoyez 5 selfies sans filtres et sans retouches par WhatsApp au:</p>
-            <h3><a href="#"><strong>+41 79 960 69 69</strong></a></h3>
+            <p><br>Envoyez 5 selfies sans filtres et sans retouches par email à:</p>
+            <h3><a href="#"><strong>info@just-ladies.com</strong></a></h3>
             <figure class="image image_resized" style="width: 100%;"><img
                     src="https://www.bemygirl.ch/storage/262cce2bb7f91c5c95f0a21dd05ac9f0/62515d92ad59f.jpg" alt="62515d92ad59f.jpg"
                     srcset="https://www.bemygirl.ch/storage/262cce2bb7f91c5c95f0a21dd05ac9f0/62515d92ad59f.jpg?w=360 360w, https://www.bemygirl.ch/storage/262cce2bb7f91c5c95f0a21dd05ac9f0/62515d92ad59f.jpg?w=570 570w, https://www.bemygirl.ch/storage/262cce2bb7f91c5c95f0a21dd05ac9f0/62515d92ad59f.jpg?w=720 720w, https://www.bemygirl.ch/storage/262cce2bb7f91c5c95f0a21dd05ac9f0/62515d92ad59f.jpg?w=1440 1440w"

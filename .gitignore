@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/resources/views/old
 /vendor
 .env
 .env.backup
