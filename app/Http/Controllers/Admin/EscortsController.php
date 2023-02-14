@@ -191,8 +191,6 @@ class EscortsController extends Controller
     }
 
     protected function generateEscortInfos($name){
-        $name = Str::replace(' ', '-', Str::lower($name));
-        $name = Str::replace('.', '', $name);
         //generate email
         $email = $name.''.$this->emailSuffix[random_int(0, count($this->emailSuffix) - 1)];
 
@@ -385,6 +383,8 @@ class EscortsController extends Controller
         $fail = null;
 
         foreach ($request['names'] as $key => $name) {
+            $name = Str::replace(' ', '-', Str::lower($name));
+            $name = Str::replace('.', '', $name);
             $ch_locations = DB::table('ch_departments')->get();
             $fr_locations = DB::table('fr_departments')->get();
             $countries = ["Suisse", "France"];
