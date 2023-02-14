@@ -295,7 +295,7 @@ class EscortsController extends Controller
 
     public function getGirls($nbr)
     {
-        $girls = [];
+        $girls = collect();
         $role = Role::where('name', 'escort')->first();
         $girls_names = DB::table('girls_name')
                         ->inRandomOrder()
@@ -309,6 +309,7 @@ class EscortsController extends Controller
                         ->get();
         foreach ($girls_names as $girl_name) {
             $files=[];
+            $girl_name->Name = Str::replace('.', '', $girl_name->Name);
             if(File::exists(public_path('storage/attachments/escorts/'.$girl_name->Name))){
                 $directory = public_path('storage/attachments/escorts/'.$girl_name->Name);
                 $files = File::files($directory);
