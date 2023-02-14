@@ -326,6 +326,7 @@ class EscortsController extends Controller
                 ];
             }
         }
+
         return response()->json(['girls_names' => $girls_names, 'girls' => $girls], Response::HTTP_OK);
     }
 
