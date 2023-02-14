@@ -42,9 +42,9 @@
     <div v-if="choice == 'auto' && !form.successful" class="card-body">
       <h4 class="text-center">
         <small class="text-muted">Génération Automatique</small>
-         <a href="/admin/escorts/create" class="btn btn-outline-secondary btn-sm ml-2" type="button" >
+         <button class="btn btn-outline-secondary btn-sm ml-2" type="button" @click="girls_names=[];girls=[]">
             <i class="bi bi-arrow-clockwise"></i>
-        </a>
+        </button>
       </h4>
       <div v-if="girls_names.length <= 0" class="row">
         <form v-if="girls_names" action="" @submit.prevent="getGirls(nbr)">
