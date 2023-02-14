@@ -246,8 +246,6 @@ export default {
             this.generate_girls = false;
           else
             this.generate_girls = true;
-
-            console.log(response);
         })
         .catch((error) => console.log(error));
     },

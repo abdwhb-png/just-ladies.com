@@ -105,7 +105,7 @@
                               <label for="abonnes" class="form-label">Augmenter le nombre d'abonnés ? (actuel = {{ count($user->abonnes) }})</label>
                               <select class="form-select @error('abonnes') is-invalid @enderror" name="abonnes"
                                 id="abonnes">
-                                <option selected>Choisir</option>
+                                <option selected value="0">Choisir</option>
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option  value="20">20</option>

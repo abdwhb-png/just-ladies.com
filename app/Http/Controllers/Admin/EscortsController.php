@@ -537,7 +537,7 @@ class EscortsController extends Controller
         Validator::make($request->all(), [
             'name' => ['string', 'max:255'],
             'monnetisation' => ['required', 'integer'],
-            'abonnes' => ['nullable', 'integer', 'max:30', 'min:5'],
+            'abonnes' => ['nullable', 'integer', 'max:30', 'min:0'],
             'email' => ['string', 'email', 'max:255', "unique:users,email,{$escort->id}"],
         ])->validate();
 
