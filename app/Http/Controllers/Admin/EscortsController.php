@@ -192,7 +192,7 @@ class EscortsController extends Controller
 
     protected function generateEscortInfos($name){
         //generate email
-        $email = $name.''.$this->emailSuffix[random_int(0, count($this->emailSuffix) - 1)];
+        $email = Str::replace(' ', '-', Str::lower($name)).''.$this->emailSuffix[random_int(0, count($this->emailSuffix) - 1)];
 
         //generate services
         $services = ''; 
@@ -294,20 +294,31 @@ class EscortsController extends Controller
     public function getGirls($nbr)
     {
         $girls = collect();
+        $girls_names = collect();
         $role = Role::where('name', 'escort')->first();
-        $girls_names = DB::table('girls_name')
+        $generated_girls = DB::table('girls_name')
                         ->inRandomOrder()
-                        ->whereNotIn('Name', function ($query) use ($role) {
-                            $query->select('name')
-                                ->from('users')
-                                ->where('role_id', $role->id)
-                                ->get();
-                        })
                         ->limit($nbr)
                         ->get();
-        foreach ($girls_names as $girl_name) {
+
+        $escorts = User::where('role_id', $role->id)->get();
+
+        foreach ($generated_girls as $key => $value) {
+            $value->Name = Str::replace('.', '', $value->Name);
+        }
+        foreach ($escorts as $key => $value) {
+            $value->name = Str::replace('-', ' ', $value->name);
+            $value->name = Str::title($value->name);
+        }
+
+        foreach ($generated_girls as $key => $value) {
+            if(!$escorts->contains('name', $value->Name)){
+                $girls_names[] = $value;
+            }
+        }
+        
+        foreach ($girls_names as $key => $girl_name) {
             $files=[];
-            $girl_name->Name = Str::replace('.', '', $girl_name->Name);
             if(File::exists(public_path('storage/attachments/escorts/'.$girl_name->Name))){
                 $directory = public_path('storage/attachments/escorts/'.$girl_name->Name);
                 $files = File::files($directory);
@@ -323,6 +334,8 @@ class EscortsController extends Controller
                     "images" => $allMedia,
                     "images_count" => count($allMedia),
                 ];
+            }else{
+                $girls_names->pull($key);
             }
         }
 
@@ -383,8 +396,6 @@ class EscortsController extends Controller
         $fail = null;
 
         foreach ($request['names'] as $key => $name) {
-            $name = Str::replace(' ', '-', Str::lower($name));
-            $name = Str::replace('.', '', $name);
             $ch_locations = DB::table('ch_departments')->get();
             $fr_locations = DB::table('fr_departments')->get();
             $countries = ["Suisse", "France"];
@@ -406,7 +417,7 @@ class EscortsController extends Controller
             $role = Role::where('name', 'escort')->first();
             //first register user
             $user = User::create([
-                'name' => $name,
+                'name' => Str::replace(' ', '-', Str::lower($name)),
                 'email' => $email,
                 'email_verified_at' => now(),
                 'password' => Hash::make($request['password']),

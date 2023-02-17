@@ -53,11 +53,11 @@
             Ooooops!!! <br> {{ girls_names.length }} escortes disponibles pour génération automatique. <br> Il faut générer manuellement!
           </div>
           <div class="row mb-3">
-              <label for="nbr" class="col-md-4 col-form-label text-md-end">Nombres d'escortes à générer (min=1, max=20)</label>
+              <label for="nbr" class="col-md-4 col-form-label text-md-end">Nombres d'escortes à générer (min=1, max=15)</label>
               <div class="col-md-6">
                   <div class="input-group">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                      <input id="nbr" type="number" required min="1" max="20" class="form-control" v-model="nbr">
+                      <input id="nbr" type="number" required min="1" max="15" class="form-control" v-model="nbr">
                   </div>
               </div>
           </div>
@@ -81,7 +81,7 @@
       </div>
       <div v-if="girls_names.length >= 1" class="row">
         <div v-if="girls_names.length >= 1" class="container text-center">
-          <h6>{{ girls_names.length }}+ escortes disponibles pour génération automatique</h6>
+          <h6>{{ girls_names.length }}+ escortes disponibles actuellement pour génération automatique</h6>
           <form action="" @submit.prevent="storeEscorts()">
             <Button :form="form" class="btn btn-success">ENREGISTRER {{ girls_names.length }} ESCORTES MAINTENANT</Button>
           </form>
@@ -248,6 +248,7 @@ export default {
             this.generate_girls = false;
           else
             this.generate_girls = true;
+            console.log(response.data)
         })
         .catch((error) => console.log(error));
     },
@@ -287,6 +288,7 @@ export default {
       }
       if(this.form.way == 'manual' && this.name != null)
         this.form.names.push(this.name.Name);
+      console.log(this.form);
       const response = this.form.post('/admin/escorts');
       console.log(response);
     },
