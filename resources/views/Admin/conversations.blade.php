@@ -3,7 +3,7 @@
 @section('title', 'Admin Conversations')
 @section('content')
 <div class="h-screen">
-    <div class="full-wrapper h-full min-h-full flex flex-auto pb-13.75 md:pb-20">
+    <div class="full-wrapper h-full min-h-full flex flex-auto">
         <div class="flex-auto w-full">
             <div data-v-591b0e1e="" class="sm:flex h-full">
                 <div data-v-591b0e1e="" class="w-full md:w-80 h-full sm:bg-gray-50">
@@ -135,13 +135,13 @@
                                                     {!! ($message['message'] == null && $message['attachment'] != null && @$message['attachment'][2] != 'file') ? $message['attachment'][1] : nl2br($message['message']) !!}
                                                 </span> <span class="absolute bottom-0 right-0 mx-1"><i class="fal fa-{{ $message['seen'] > 0 ? 'check-double' : 'check' }} fa-xs"></i></span>
                                             </p>
-                                            <form action="{{  route('admin.conversations.dltMsg')  }}" method="" class="mt-1 relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" >
+                                            {{-- <form action="{{  route('admin.conversations.dltMsg')  }}" method="" class="mt-1 relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" >
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="chatter_id" value="{{ $message['id'] }}">
                                                 <input name="msg_id" type="hidden" value="{{ $chatter_id }}">
                                                     <button type="submit" class=""><i class="fas fa-trash text-xl text-danger"></i></button>
-                                            </form>
+                                            </form> --}}
                                             
                                         </div>
                                     </div>
@@ -201,4 +201,5 @@
         </div>
     </div>
 </div>
+@php $seen = App\Http\Controllers\Admin\UsersController::makeSeen($chatter_id, $target_id); @endphp
 @endsection

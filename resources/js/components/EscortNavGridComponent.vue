@@ -194,7 +194,7 @@
                                   >Sélectionnez une photo dans votre gallerie</label
                                 >
                                 <div class="row">
-                                  <div class="text-bg-dark col-2 card" v-for="image in gallery" v-bind:key="image.id">
+                                  <div class="text-bg-dark col-md-3 col-4 card" v-for="image in gallery" v-bind:key="image.id">
                                     <img :src="'/storage/' + image.image_path" class="card-img img-fluid" :alt="image.image_name">
                                     <div class="card-img-overlay">
                                      <button type="button" @click.prevent="updtProfilePic(image.image_path)" class="btn btn-warning btn-sm">Sélectionner</button>

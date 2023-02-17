@@ -79,6 +79,14 @@ class UsersController extends Controller
 
         return $contacts ;
     }
+    public static function makeSeen($chatter_id, $target_id){
+        $seen = Message::Where('from_id', $target_id)
+                ->where('to_id', $chatter_id)
+                ->where('seen', 0)
+                ->update(['seen' => 1]);
+        if($seen) return 1;
+        else return 0;
+    }
     public function getConversations($chatter_id, $target_id){
         $chatter_name = User::where('id', $chatter_id)->first();
         // get all users that received/sent message from/to [param user]
