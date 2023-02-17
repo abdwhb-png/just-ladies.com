@@ -11,8 +11,9 @@ class MembersController extends Controller
         return view('Users.Members.register');
     }
 
-    public function error()
+    public function xxx()
     {
-        return back()->withStatus(__('ERREUR pour le membre : Vous ne pouvez pas créer un compte.'));
+        $error = 'ERREUR (action non autorisé) : Vous ne pouvez pas créer un compte!';
+        return view('members-registration')->with('error', $error);
     }
 }

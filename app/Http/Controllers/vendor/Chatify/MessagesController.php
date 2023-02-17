@@ -93,7 +93,7 @@ class MessagesController extends Controller
         // send the response
         return Response::json([
             'favorite' => $favorite,
-            'fetch' => $fetch ?? [],
+            'fetch' => $fetch ?? null,
             'user_avatar' => $userAvatar ?? null,
         ]);
     }
@@ -158,7 +158,7 @@ class MessagesController extends Controller
 
         if (!$error->status) {
             // send to database
-            $messageID = mt_rand(9, 999999999) + time();
+            $messageID = Str::uuid();
             Chatify::newMessage([
                 'id' => $messageID,
                 'type' => $request['type'],

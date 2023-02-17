@@ -1,7 +1,6 @@
 @include('Chatify::layouts.headLinks')
 <div class="h-screen">
-    <nav id="main-navigation" class=" shadow shrink  navbar-wrapper"><img id="header-bg"
-        src="/storage/bafd652d2e9032fa048c677f7387ee81/escort-zurich-geneve-12.jpg" alt="">
+    <nav id="main-navigation" class=" shadow shrink  navbar-wrapper">
         <div class="w-full md:container md:mx-auto">
             <div id="desktop-logo">
                 <div class="flex flex-col items-center justify-center mx-auto"><a href="{{ route('/') }}"
@@ -42,7 +41,7 @@
     </nav>
     <div class="messenger">
         {{-- ----------------------Users/Groups lists side---------------------- --}}
-        <div class="messenger-listView">
+        <div class="messenger-listView {{ !!$id ? 'conversation-active' : '' }}">
             {{-- Header and search bar --}}
             <div class="m-header">
                 <nav class="py-4 mb-2">

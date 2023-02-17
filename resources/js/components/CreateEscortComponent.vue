@@ -109,7 +109,9 @@
             <div id="step1">
                 <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">Nom d\'utilisateur</label>
+                    <div v-if="choice=='auto' && form.successful">
                           <HasError :form="form" field="names" />
+                    </div>
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>

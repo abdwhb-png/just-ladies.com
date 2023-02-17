@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Image;
 
 class EscortsController extends Controller
@@ -81,6 +82,29 @@ class EscortsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     public function resetPassword(Request $request, $user_id){
+        Validator::make($request->all(), [
+            'current_password' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ])->validate();
+
+        $fail = null;
+        $success = null;
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->current_password , $hashedPassword)) {
+            $user = User::where('id', $user_id)->first();
+            $user->update([
+                'password' => Hash::make($request['password']),
+            ]);
+            if($user)
+                $success = "Mot de passe modifié avec succès.";
+            else
+                $fail = "Quelque chose s'est mal passé! Recommencer.";
+        }else{
+            $fail = 'Le mot de passe actuel est incorrect';
+        }
+        return redirect()->route('users.escort.index')->with(['success' => $success, 'fail' => $fail]);
+    }
     public function update(Request $request, $id)
     {
         Validator::make($request->all(), [

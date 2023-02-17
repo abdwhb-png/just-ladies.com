@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('member', MembersController::class);
         Route::middleware('can:escort-user')->group(function () {
             Route::resource('escort', EscortsController::class);
+            Route::patch('/escort/reset/password/{user_id}', [App\Http\Controllers\Users\EscortsController::class, 'resetPassword'])->name('escort.reset.password');
         });
     });
     
@@ -66,7 +67,7 @@ Route::middleware('auth')->group(function () {
 
 //Site Pages
 Route::get('/members-registration', [App\Http\Controllers\MembersController::class, 'register'])->name('members-registration');
-Route::put('/members-registration', [App\Http\Controllers\MembersController::class, 'error'])->name('members-registration');
+Route::post('/members-registration', [App\Http\Controllers\MembersController::class, 'xxx'])->name('members-registration');
 Route::get('/tarifs', [App\Http\Controllers\MainController::class, 'tarifs'])->name('tarifs');
 Route::get('/contact', [App\Http\Controllers\MainController::class, 'contact'])->name('contact');
 Route::get('/conditions-generales', [App\Http\Controllers\MainController::class, 'conditionsGenerales'])->name('conditions-generales');

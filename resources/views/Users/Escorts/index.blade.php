@@ -3,7 +3,7 @@
 @section('content')
     <div id="app">
         <div id="dash" style="display: none;">
-            <div id="body_content" class="full-wrapper mb-4 pb-8">
+            <div id="body_content" class="full-wrapper">
                 <div class="md:container md:mx-auto ">
                     <div id="profile-header" class="sticky top-0 md:px-6 px-2 pt-6 pb-4 bg-white z-10 transition-all block md:hidden">
                         <div class="flex justify-between align-center"><a id="back-button" href="{{ url()->previous() }}" title="Retour" class="focus:outline-none md:hidden mr-2 pt-1 mr-10"><i aria-hidden="true" class="fak fa-c-arrow-left text-xl md:text-2xl"></i></a> <span class="hidden md:block"><a href="{{ url()->previous() }}" title="Retour" class="btn-secondary mini">
@@ -128,6 +128,25 @@
                             </p> <span class="text-xs text-gray-700">
                                     Mis à jour il y a {{ Auth::user()->escort->updated_at->diffForHumans() }}
                                 </span>
+                        </div>
+                       @if(session()->has('success'))
+                        <div class="alert alert-success flex justify-end w-1/2 md:w-auto md:mt-6 md:order-last" role="alert" style="border-left: 14px solid #55b56d!important">
+                            {{session()->get('success')}}
+                        </div>
+                        @endif
+                        @if(session()->has('fail'))
+                        <div class="alert alert-danger flex justify-end w-1/2 md:w-auto md:mt-6 md:order-last" role="alert" style="border-left: 14px solid red!important">
+                            {{session()->get('fail')}}
+                        </div>
+                        @endif
+                        @if (count($errors))
+                        <div class="alert alert-danger flex justify-end w-1/2 md:w-auto md:mt-6 md:order-last" role="alert" style="border-left: 14px solid red!important">
+                            @foreach ($errors->all() as $error)
+                            <p>{{$error}}</p>
+                            @endforeach
+                        </div>
+                        @endif
+                       </div>
                         </div>
                     </div>
                         <escort-nav-grid-component escort-id="{{ Auth::user()->id }}" escort-name="{{ Auth::user()->name }}" escort-infos="{{ json_encode($infos) }}"></escort-nav-grid-component>
@@ -266,24 +285,35 @@
                         <div data-v-95b7e92a="" class="alert__header text-lg font-bold px-6 py-4">
                             <h3 class="text-base">Modifier le mot de passe</h3>
                         </div>
-                        <div data-v-95b7e92a="" class="alert__body overflow-auto flex flex-1 flex-col items-stretch px-6 py-2">
-                            <div class="h-full">
-                                <div class="flex flex-col h-full justify-between">
-                                    <div class="mb-4">
-                                        <div class="flex flex-col mb-4"><input name="old_password" type="password" id="old_password" required="required" placeholder="Ancien mot de passe" class="form-input h-10"></div>
-                                        <div class="flex flex-col mb-4"><input name="password_email" type="email" id="password_email" required="required" placeholder="Votre email actuel" class="form-input h-10"></div>
+                        <form action="{{ route('users.escort.reset.password', Auth::user()->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="from" value="password">
+                            <div data-v-95b7e92a="" class="alert__body overflow-auto flex flex-1 flex-col items-stretch px-6 py-2">
+                                <div class="h-full">
+                                    <div class="flex flex-col h-full justify-between">
+                                        <div class="mb-3">
+                                            <div class="flex flex-col mb-4"><input name="current_password" type="password" id="current_password" required="required" placeholder="Mot de passe actuel" class="form-input h-10"></div>
+                                            <div class="flex flex-col mb-3"><input name="password" type="password" id="password" required="required"
+                                                    placeholder="Nouveau mot de passe" class="form-input h-10">
+                                            </div>
+                                            <div class="flex flex-col mb-3"><input name="password_confirmation" type="password" id=password_confirmation" required="required"
+                                                    placeholder="Confirmer mot de passe" class="form-input h-10"></div>
+                                            {{-- <div class="flex flex-col mb-4"><input name="password_email" type="email" id="password_email" required="required" placeholder="Votre email actuel" class="form-input h-10"></div> --}}
+                                        </div>
+                                        {{-- <div class="alert alert-secondary" role="alert">
+                                            Un message contenant un lien de réinitialisation de mot de passe vous sera envoyé si l'email renseigné est correct.
+                                        </div> --}}
+                                        <div class="flex justify-end mb-1"><button class="mr-2 p-2 flex items-center btn btn-secondary justify-center modal__close">
+                                                        Annuler
+                                                    </button> <button type="submit"  class="btn-primary h-10 flex items-center">
+                                                        Confirmer
+                                                    </button></div>
                                     </div>
-                                    <div class="alert alert-secondary" role="alert">
-                                        Un message contenant un lien de réinitialisation de mot de passe vous sera envoyé si l'email renseigné est correct.
-                                    </div>
-                                    <div class="flex justify-end mb-4"><button class="mr-2 p-2 flex items-center btn btn-secondary justify-center modal__close">
-                                                    Annuler
-                                                </button> <button type="button" onclick="document.location.reload(true)" class="btn-primary h-10 flex items-center">
-                                                    Confirmer
-                                                </button></div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                        
                         <div data-v-95b7e92a="" class="alert__footer"></div>
                     </div>
                 </div>

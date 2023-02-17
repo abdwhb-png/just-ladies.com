@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<!-- Mirrored from www.bemygirl.ch/fr/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Aug 2022 13:53:28 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="2Zcu7P4IfYTwOZyusK17iczmeNLhQp0LSehliKyu">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="robots" content="noindex" />
@@ -23,11 +19,14 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/griffe.png') }}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/griffe.png') }}">
-    
-
-    <link rel="stylesheet" href="https://www.bemygirl.ch/lib/vue-multiselect/vue-multiselect.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .login-wrapper {
+        background-image: url("https://www.bemygirl.ch/images/bemygirl-login.jpeg");
+        background-size: cover;
+        background-position: 50%;
+        }
     </style>
-    <link rel="stylesheet" href="https://www.bemygirl.ch/build/css/app.css?id=5f3368e3ec55c498901c">
 </head>
 
 <body class=" m-0 p-0 login-wrapper flex items-center justify-center min-h-screen">
@@ -88,26 +87,5 @@
         </template>
     </modal>
     </div>
-    <script src="https://www.bemygirl.ch/lib/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="https://www.bemygirl.ch/build/js/app.js?id=fa4467cc272a080e6593" type="text/javascript"></script>
-
-    <script type="text/javascript">
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-        $('#accept-cgu').click(async function () {
-            $('body').removeClass('overflow-hidden');
-            $('#cgu').remove();
-        })
-    </script>
 </body>
-
-<!-- Mirrored from www.bemygirl.ch/fr/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Aug 2022 13:53:28 GMT -->
-
 </html>

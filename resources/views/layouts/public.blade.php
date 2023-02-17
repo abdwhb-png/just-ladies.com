@@ -73,15 +73,9 @@
 
     </div>
 
-    
     <script src="https://www.bemygirl.ch/lib/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="https://www.bemygirl.ch/build/js/app.js?id=9365b1004fcce5d65380" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-           
-        })
-    </script>
     <script type="text/javascript">
         function contact() {
             $('.contactModal').trigger('click');
@@ -99,38 +93,6 @@
         }
     </script>
 
-    <script>
-        const navHeight = $('#main-navigation').outerHeight()
-        $(window).scroll(function(e) {
-            const scrollYPosition = $(window).scrollTop()
-            const isDesktop = $('#desktop-logo').is(":visible");
-            if (isDesktop) {
-                if (scrollYPosition > navHeight) {
-                    $('#main-navigation').addClass('shrink').css('margin-bottom', navHeight + 'px')
-                        // $('footer').removeClass('md:pb-28').addClass('md:pb-16')
-                } else {
-                    $('#main-navigation').removeClass('shrink').css('margin-bottom', '0px')
-                        // $('footer').removeClass('md:pb-16').addClass('md:pb-28')
-                }
-            } else {
-                $('#main-navigation').removeClass('shrink').css('margin-bottom', '0px')
-            }
-        });
-    </script>
-
-    <script type="text/javascript">
-        function logContactAttempt(channel) {
-            $.ajax({
-                type: 'POST',
-                url: 'https://www.bemygirl.ch/fr/_logContactAttempt',
-                data: {
-                    _token: 'vzlOsU9ScR48TUM0NsWVN20hTwhS48G4ktKBtpNO',
-                    girl_id: 29242,
-                    contact_type: channel
-                }
-            });
-        }
-    </script>
 
     <script>
         $(window).scroll(function(e) {
