@@ -158,7 +158,7 @@ class MessagesController extends Controller
 
         if (!$error->status) {
             // send to database
-            $messageID = Str::uuid();
+            $messageID = mt_rand(9, 999999999) + time();
             Chatify::newMessage([
                 'id' => $messageID,
                 'type' => $request['type'],

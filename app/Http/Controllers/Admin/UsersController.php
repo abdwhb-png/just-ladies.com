@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Pusher\Pusher;
 
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Escort;
 
 use App\Models\ChMessage;
-use App\Models\ChMessage as Message;
-
 use Illuminate\Http\Request;
+
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\ChMessage as Message;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Storage;
-use Pusher\Pusher;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
-use Chatify\Facades\ChatifyMessenger as Chatify;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 
 class UsersController extends Controller
 {
@@ -170,30 +172,68 @@ class UsersController extends Controller
             'seen' => $msg->seen,
         ];
     }
-    public function deleteMessage($chatter_id, $msg_id)
-    {
-        // delete
-        try {
-            $msg = Message::findOrFail($msg_id);
-                if ($msg->from_id == $chatter_id) {
-                    // delete file attached if exist
-                    if (isset($msg->attachment)) {
-                        $path = config('chatify.attachments.folder') . '/' . json_decode($msg->attachment)->new_name;
-                        if (self::storage()->exists($path)) {
-                            self::storage()->delete($path);
-                        }
-                    }
-                    // delete from database
-                    $msg->delete();
-                } else {
-                    return 0;
-                }
-            return 1;
-        } catch (Exception $e) {
-            return 0;
-        }
+    public function sendMessage(Request $request){
+        Validator::make($request->all(), [
+            'form'  => ['required', 'string', Rule::in(['image', 'text'])],
+            'message' => ['exclude_if:form,image', 'required', 'string', 'max:500'],
+            'file' => ['exclude_if:form,text', 'required','image', 'mimes:jpg,png,jpeg', 'max:5120'],
+        ])->validate();
+        $attachment = null;
+        $attachment_title = null;
 
-        redirect(Request::url());
+        // if there is attachment [file]
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            // get attachment name
+            $attachment_title = $file->getClientOriginalName();
+            // upload attachment and store the new name
+            $attachment = Str::uuid() . "." . $file->getClientOriginalExtension();
+            $file->storeAs(config('chatify.attachments.folder'), $attachment, config('chatify.storage_disk_name'));
+        }
+        // send to database
+        $messageID = mt_rand(9, 999999999) + time();
+        Chatify::newMessage([
+            'id' => $messageID,
+            'type' => $request['type'],
+            'from_id' => $request['from_id'],
+            'to_id' => $request['to_id'],
+            'body' => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8'),
+            'attachment' => ($attachment) ? json_encode((object)[
+                'new_name' => $attachment,
+                'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+            ]) : null,
+        ]);
+
+        // fetch message to send it with the response
+        $messageData = Chatify::fetchMessage($messageID);
+
+        // send to user using pusher
+        Chatify::push('private-chatify', 'messaging', [
+            'from_id' => $request['from_id'],
+            'to_id' => $request['to_id'],
+            'message' => Chatify::messageCard($messageData, 'default')
+        ]);
+
+        return back();
+    }
+    public function dltMsg(Request $request)
+    {
+        $chatter_id = $request['chatter_id'];
+        $msg_id = $request['msg_id'];
+        $msg = Message::findOrFail($msg_id);
+        if ($msg->from_id == $chatter_id) {
+            // delete file attached if exist
+            if (isset($msg->attachment)) {
+                $path = config('chatify.attachments.folder') . '/' . json_decode($msg->attachment)->new_name;
+                if (self::storage()->exists($path)) {
+                    self::storage()->delete($path);
+                }
+            }
+            // delete from database
+            $msg->delete();
+        } 
+
+        return redirect()->back();
     }
 
     public function index(User $model)

@@ -49,8 +49,7 @@
                 @if($contacts->contains('id', $target_id))
                 <div data-v-591b0e1e="" class="absolute md:relative inset-0 inline-block w-full h-full bg-white z-10">
                     <div data-v-591b0e1e="" class="flex flex-col h-full pb-16 md:pb-0">
-                        <div class="flex justify-between md:hidden px-4 md:px-10 pt-6 pb-4"><button
-                                class="focus:outline-none mr-2"><i class="fak fa-c-arrow-left text-2xl"></i></button> <span
+                        <div class="flex justify-between md:hidden px-4 md:px-10 pt-6 pb-4"><a href="{{ url()->previous() }}" class="focus:outline-none mr-2"><i class="bi bi-arrow-left"></i></a> <span
                                 class="flex items-center text-gray-800 text-sm">
                                 <div class="relative"><img src="/image/c467753ef522e3aa5b4ac48f075289b0/L1006830.jpg"
                                         class="absolute rounded-full object-cover h-5 w-5 mr-1">
@@ -77,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-grow overflow-y-auto ">
+                        <div id="messageBar" class="flex-grow overflow-y-auto ">
                         @foreach($response['messages'] as $message)
                             @if($message['viewType'] == 'default')
                                 @if($message['from_id'] != $message['to_id'])
@@ -92,9 +91,8 @@
                                         
                                         {{-- If attachment is an image --}}
                                         @if(@$message['attachment'][2] == 'image')
-                                        <div class="image-file chat-image"
-                                            style="margin-top:10px;width: 250px; height: 150px;background-image: url('{{ Chatify::getAttachmentUrl($message['attachment'][0]) }}')">
-                                        </div>
+                                        <img src="{{ Chatify::getAttachmentUrl($message['attachment'][0]) }}" class="img-thumbnail rounded float-end mt-2"
+                                            height="300" width="300" alt="...">
                                         @endif
                                         <div class="block w-3/4 float-left"><span
                                                 class="text-xxs text-gray-700 mb-1 float-left mt-1">
@@ -125,10 +123,8 @@
                                         @endif
                                         
                                         {{-- If attachment is an image --}}
-                                        @if(@$message['attachment'][2] == 'image')
-                                        <div class="image-file chat-image"
-                                            style="margin-top:10px;width: 250px; height: 150px;background-image: url('{{ Chatify::getAttachmentUrl($message['attachment'][0]) }}')">
-                                        </div>
+                                        
+                                        @if(@$message['attachment'][2] == 'image')<img src="{{ Chatify::getAttachmentUrl($message['attachment'][0]) }}" class="img-thumbnail rounded float-end mt-2" height="300" width="300" alt="...">
                                         @endif
                                         <div class="block w-3/4 float-right"><span class="text-xxs text-gray-700 mb-1 float-right mt-1">
                                                 {{ $message['time'] }}
@@ -139,11 +135,13 @@
                                                     {!! ($message['message'] == null && $message['attachment'] != null && @$message['attachment'][2] != 'file') ? $message['attachment'][1] : nl2br($message['message']) !!}
                                                 </span> <span class="absolute bottom-0 right-0 mx-1"><i class="fal fa-{{ $message['seen'] > 0 ? 'check-double' : 'check' }} fa-xs"></i></span>
                                             </p>
-                                            {{-- <form class="relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" data-id="{{ $message['id'] }}" action="{{ route('admin.conversations.deleteMessage', ['msg_id' => $message['id'], 'chatter_id' => $chatter_id]) }}" method="POST">
+                                            <form action="{{  route('admin.conversations.dltMsg')  }}" method="" class="mt-1 relative rounded-t-lg inline-block clear-both float-right rounded-bl-lg text-danger" >
                                                 @csrf
-                                                @method('DELETE')
-                                                <button type="submit"><i class="fas fa-trash"></i></button>
-                                            </form> --}}
+                                                @method('PUT')
+                                                <input type="hidden" name="chatter_id" value="{{ $message['id'] }}">
+                                                <input name="msg_id" type="hidden" value="{{ $chatter_id }}">
+                                                    <button type="submit" class=""><i class="fas fa-trash text-xl text-danger"></i></button>
+                                            </form>
                                             
                                         </div>
                                     </div>
@@ -154,39 +152,47 @@
                         </div>
                         <div class="relative min-h-12 w-full bg-white">
                             <!---->
+                            @if (count($errors))
+                                <div class="alert alert-danger flex justify-end w-1/2 md:w-auto md:mt-6 md:order-last" role="alert"
+                                    style="border-left: 14px solid red!important">
+                                    @foreach ($errors->all() as $error)
+                                    <p>{{$error}}</p>
+                                    @endforeach
+                                </div>
+                            @endif
                             <div data-v-a816de48="" class="flex justify-center px-4 md:px-10 pt-6 md:pt-10 pb-4 md:pb-10">
                                 <!---->
-                                <div data-v-a816de48=""
-                                    class="flex flex-grow items-center bg-gray-100 rounded-lg border border-transparent focus-within:ring-0 focus-within:border focus-within:border-gray-800 focus-within:bg-white">
-                                    <textarea data-v-a816de48="" maxlength="500"
-                                        class="inline-block bg-transparent border-0 focus:outline-none focus:ring-0 flex-grow resize-none h-10"></textarea>
-                                    <button data-v-a816de48=""
-                                        class="inline-block self-end m-3 focus:outline-none text-xl"><i data-v-a816de48=""
-                                            class="fak fa-c-send text-primary"></i></button>
-                                </div> <input data-v-a816de48="" type="file" id="file" accept="image/*" class="hidden">
-                                <div data-v-12291c58="" data-v-a816de48="" class="modal outline-none"
-                                    id="preview-image-modal" role="dialog" aria-labelledby="modalTitle"
-                                    aria-describedby="modalDescription" tabindex="-1" style="display: none;">
-                                    <div data-v-12291c58="" class="modal__backdrop"></div>
-                                    <div data-v-12291c58="" class="modal__dialog md:rounded-xl md:max-h-9/10">
-                                        <div data-v-12291c58="" class="modal__header">
-                                            <h2 data-v-a816de48="" class="font-bold">Envoyer une photo</h2>
-                                        </div>
-                                        <div data-v-12291c58="" class="modal__body p-5"><svg data-v-a816de48=""
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                class="animate-spin -ml-1 mr-3 h-5 w-5 flex justify-center items-center">
-                                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
-                                                    class="opacity-25"></circle>
-                                                <path fill="currentColor"
-                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                                    class="opacity-75"></path>
-                                            </svg></div>
-                                        <!----> <button data-v-12291c58="" type="button" class="modal__close">
-                                            <h3 data-v-12291c58=""><i data-v-12291c58="" class="fak fa-c-close"></i></h3>
+                                <form id="textForm" class="flex flex-grow items-center" action="{{  route('admin.conversations.sendMessage')  }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="text" name="form">
+                                    <input type="hidden" value="{{ $chatter_id }}" name="from_id">
+                                    <input type="hidden" value="{{ $target_id }}" name="to_id">
+                                    <input type="hidden" value="user" name="type">
+                                    <div class="flex flex-grow items-center bg-gray-100 rounded-lg border border-transparent focus-within:ring-0 focus-within:border focus-within:border-gray-800 focus-within:bg-white">
+                                        <button onclick="sendImage()" type="button" class="btn btn-primary inline-block self-end m-3 focus:outline-none text-xl">
+                                            <i class="bi bi-image-fill"></i>
                                         </button>
+                                        <textarea maxlength="500"
+                                            class="inline-block bg-transparent border border-light-subtle focus:outline-none focus:ring-0 flex-grow resize-none h-15" name="message" placeholder="Entrer votre message.."></textarea>
+                                        <button type="submit" class="btn btn-primary inline-block self-end m-3 focus:outline-none text-xl"><i class="bi bi-send-fill"></i></button>
                                     </div>
-                                </div>
-                            </div>
+                                </form>
+                                <form id="imageForm" class="flex flex-grow items-center" style="display: none" method="POST" action="{{  route('admin.conversations.sendMessage')  }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="image" name="form">
+                                    <input type="hidden" value="{{ $chatter_id }}" name="from_id">
+                                    <input type="hidden" value="{{ $target_id }}" name="to_id">
+                                    <input type="hidden" value="user" name="type">
+                                    <div
+                                        class="flex flex-grow items-center bg-gray-100 rounded-lg border border-transparent focus-within:ring-0 focus-within:border focus-within:border-gray-800 focus-within:bg-white">
+                                        <button onclick="sendText()" type="button" id="sendImage" class="btn btn-primary inline-block self-end m-3 focus:outline-none">
+                                            <i class="bi bi-x"></i> Annuler
+                                        </button>
+                                        <input type="file" name="file" class="inline-block bg-transparent border border-light-subtle focus:outline-none focus:ring-0 flex-grow resize-none">
+                                        <button type="submit" class="btn btn-primary inline-block self-end m-3 focus:outline-none text-xl"><i
+                                                class="bi bi-send-fill"></i></button>
+                                    </div>
+                                </form>
                         </div>
                     </div>
                 </div>

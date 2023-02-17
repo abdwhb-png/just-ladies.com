@@ -131,5 +131,21 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://www.bemygirl.ch/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function sendImage(){
+            $("#textForm").hide();
+            $("#imageForm").show();
+        };
+        function sendText(){
+            $("#textForm").show();
+            $("#imageForm").hide();
+        }
+    </script>
+    <script type="text/javascript">
+        $('#messageBar').ready(function() {
+            $('#messageBar').scrollTop($('#messageBar').height());
+        });
+    </script>
 </body>
 </html>

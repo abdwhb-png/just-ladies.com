@@ -42,7 +42,8 @@ Route::middleware('can:gest-users', 'auth')->group(function () {
     Route::get('/admin/get-chatters', [App\Http\Controllers\Admin\UsersController::class, 'getChatters']);
     Route::get('/admin/get-contacts/{id}', [App\Http\Controllers\Admin\UsersController::class, 'getContacts']);
     Route::get('/admin/conversations/{chatter_id}/{target_id}', [App\Http\Controllers\Admin\UsersController::class, 'getConversations'])->name('admin.conversations');
-    Route::delete('/admin/conversations/deleteMessage/{msg_id}/{chatter_id}', [App\Http\Controllers\Admin\UsersController::class, 'deleteMessage'])->name('admin.conversations.deleteMessage');
+    Route::post('/admin/conversations/sendMessage', [App\Http\Controllers\Admin\UsersController::class, 'sendMessage'])->name('admin.conversations.sendMessage');
+    Route::put('/admin/conversations/dltMsg', [App\Http\Controllers\Admin\UsersController::class, 'dltMsg'])->name('admin.conversations.dltMsg');
     Route::put('/admin/reset/password/{user_id}', [App\Http\Controllers\Admin\UsersController::class, 'resetPassword'])->name('admin.reset.password');
     Route::get('/api/user', [App\Http\Controllers\Admin\UsersController::class, 'searchUser']);
 });
@@ -67,7 +68,7 @@ Route::middleware('auth')->group(function () {
 
 //Site Pages
 Route::get('/members-registration', [App\Http\Controllers\MembersController::class, 'register'])->name('members-registration');
-Route::post('/members-registration', [App\Http\Controllers\MembersController::class, 'xxx'])->name('members-registration');
+Route::post('/members-registration', [App\Http\Controllers\MembersController::class, 'xxx'])->name('members.registration');
 Route::get('/tarifs', [App\Http\Controllers\MainController::class, 'tarifs'])->name('tarifs');
 Route::get('/contact', [App\Http\Controllers\MainController::class, 'contact'])->name('contact');
 Route::get('/conditions-generales', [App\Http\Controllers\MainController::class, 'conditionsGenerales'])->name('conditions-generales');

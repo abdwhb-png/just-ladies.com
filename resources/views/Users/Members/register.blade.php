@@ -12,7 +12,7 @@
 					{{session()->get('error')}}
 				</div>
 			@else
-				<form class="min-h-full" method="POST" action="{{ route('members-registration') }}">
+				<form class="min-h-full" method="POST" action="{{ route('members.registration') }}">
 					@csrf
 					<div class="flex flex-col justify-between items-center px-4 min-h-full w-full">
 						<div class="relative flex justify-center py-8 px-4 w-full">
