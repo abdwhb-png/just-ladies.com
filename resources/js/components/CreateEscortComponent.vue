@@ -81,7 +81,7 @@
       </div>
       <div v-if="girls_names.length >= 1" class="row">
         <div v-if="girls_names.length >= 1" class="container text-center">
-          <h6>{{ girls_names.length }}+ escortes disponibles actuellement pour génération automatique</h6>
+          <h6 class="mb-1">{{ girls_names.length }}+ escortes disponibles actuellement pour génération automatique</h6>
           <form action="" @submit.prevent="storeEscorts()">
             <Button :form="form" class="btn btn-success">ENREGISTRER {{ girls_names.length }} ESCORTES MAINTENANT</Button>
           </form>
