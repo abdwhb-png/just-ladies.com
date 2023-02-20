@@ -116,6 +116,7 @@ class EscortsController extends Controller
             'hair' => ['exclude_if:from,services', 'required', 'string'],
             'breasts' => ['exclude_if:from,services', 'required', 'string'],
             'pubic_hair' => ['exclude_if:from,services', 'required', 'string'],
+            'tel' => ['exclude_if:from,services', 'required', 'string'],
             'about' => ['exclude_if:from,services', 'required', 'string', 'min:100', 'max:5000'],
 
             'newServices' => ['exclude_if:from,infos', 'required', 'string', 'min:1'],
@@ -144,6 +145,7 @@ class EscortsController extends Controller
                 'hair' => $request['hair'],
                 'breasts' => $request['breasts'],
                 'pubic_hair' => $request['pubic_hair'],
+                'contact' => $request['tel'],
                 'about' => $request['about'],
             ]);
 

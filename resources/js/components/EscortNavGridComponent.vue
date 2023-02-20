@@ -556,6 +556,18 @@
                             </div>
                             <div class="flex flex-col mb-4">
                               <label for="about" class="legend mb-2"
+                                >Téléphone</label
+                              >
+                              <input
+                                      class="form-input h-10"
+                                      type="text"
+                                      v-model="infosForm.tel"
+                                      name="tel" required
+                                    />
+                              <HasError :form="infosForm" field="tel" />
+                            </div>
+                            <div class="flex flex-col mb-4">
+                              <label for="about" class="legend mb-2"
                                 >A propos (5000)</label
                               >
                               <HasError :form="infosForm" field="about" />
@@ -653,6 +665,9 @@
                 </span></a
               >
             </div>
+          </div>
+          <div class="max-w-prose md:mx-auto mt-2 text-sm">
+            <span id="" class="font-semibold">Téléphone:  <em>{{ infosForm.tel }}</em><br /></span>
           </div>
           <div class="max-w-prose md:mx-auto p-4 text-sm my-4">
             <span id="" class="font-semibold">A propos: </span>
@@ -1177,6 +1192,7 @@ export default {
         hair: window.escortInfos.hair,
         pubic_hair: window.escortInfos.pubic_hair,
         breasts: window.escortInfos.breasts,
+        tel: window.escortInfos.contact,
         about: window.escortInfos.about,
       }),
       servicesForm: new Form({
